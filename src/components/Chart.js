@@ -12,7 +12,7 @@ class Chart extends Component {
     const {chart} = this.props
     if (chart.length === 0) return false
     return (
-      <div class="mb-3">
+      <div className="mb-3">
         <p>Gráfico com os dados das ações:</p>
         <LineChart  width={700} height={300} data={chart} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
           <Line type="monotone" dataKey="high" stroke="#12de12" />
