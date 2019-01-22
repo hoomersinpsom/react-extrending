@@ -1,32 +1,46 @@
+html, body{
+
+}
 .App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.app-wrap:after, .app-wrap:before{
+  opacity: 0;
+  pointer-events: none;
+  display: block;
+  transition: opacity 300ms;
 }
-
-.App-link {
-  color: #61dafb;
+.app-wrap:after{
+  content: '';
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
 }
+.app-wrap:before{
+  content: 'Carregando ...';
+  font-size: 30px;
+  position: absolute;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: loading 1s infinite linear;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+}
+.app-wrap.loading:before, .app-wrap.loading:after{
+  opacity: 1;
+  pointer-events: all;
+}
+@keyframes loading {
+  0%, 100%{
+    transform: translate(-50%, -50%) scale(0.9) rotate(-5deg);
   }
-  to {
-    transform: rotate(360deg);
+  50%{
+    transform: translate(-50%, -50%) scale(1.1) rotate(5deg);
+    color: tomato;
   }
 }
