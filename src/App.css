@@ -1,8 +1,6 @@
-html, body{
-
-}
-.App {
-
+.app-wrap > .container{
+  max-width: 768px;
+  padding-top: 2rem;
 }
 .app-wrap:after, .app-wrap:before{
   opacity: 0;

@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { getSymbol } from 'http/search'
+import { bindActionCreators } from 'redux'
+import { company } from 'actions'
+import { connect } from 'react-redux'
 
 class Search extends Component {
   constructor() {
     super()
     this.state = {
-      symbol: '',
-      result: {}
+      symbol: ''
     }
     this.sendForm = this.sendForm.bind(this)
   }
@@ -19,10 +21,7 @@ class Search extends Component {
   async sendForm (e) {
     e.preventDefault()
     const {data} = await getSymbol(this.state.symbol)
-    console.log(data)
-    this.setState({
-      result: data
-    })
+    this.props.company(data)
   }
   render() {
     return (
@@ -42,12 +41,18 @@ class Search extends Component {
             <button type="submit" className="btn btn-primary">Buscar</button>
           </div>
         </div>
-        <pre>
-          {JSON.stringify(this.state.result)}
-        </pre>
       </form>
     );
   }
 }
 
-export default Search;
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {
+      company
+    },
+    dispatch
+  )
+}
+export default connect(null, mapDispatchToProps)(Search)

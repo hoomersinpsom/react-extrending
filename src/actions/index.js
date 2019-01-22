@@ -18,9 +18,9 @@ export const loading = loading => {
   }
 }
 
-export const openMenu = openMenu => {
+export const company = company => {
   return dispatch => dispatch({
-    type: types.OPENMENU,
-    openMenu
+    type: types.COMPANY,
+    company
   })
 }

@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 // import todos from './TodoReducer'
 import loading from './LoadingReducer'
-import menu from './MenuReducer'
+import company from './CompanyReducer'
 
 export default combineReducers({
   loading,
-  menu
+  company
 })

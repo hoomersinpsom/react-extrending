@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
-import Search from 'components/Search'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { loading } from 'actions'
+
+import Search from 'components/Search'
+import Info from 'components/Info'
+import Chart from 'components/Chart'
 
 import classnames from 'classnames'
 import 'sweetalert2/dist/sweetalert2.css'
@@ -20,6 +23,8 @@ class App extends Component {
         <div className="container">
           <h1>IEX</h1>
           <Search />
+          <Info />
+          <Chart />
         </div>
       </div>
     );

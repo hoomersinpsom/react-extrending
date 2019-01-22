@@ -4,7 +4,7 @@ const INITIAL_DATA = {
   isLoading: 1
 }
 
-const LoadingReducer = (state=INITIAL_DATA, action) => {
+const LoadingReducer = (state = INITIAL_DATA, action) => {
   switch (action.type) {
     case types.LOADING: 
     if (action.loading) {
